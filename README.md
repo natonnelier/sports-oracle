@@ -10,7 +10,7 @@ It was developed using:
 - ethers 5.3.1
 
 Tests use:
-- chain 4.3.4
+- chai 4.3.4
 
 ## Data structure
 A struct `Game` has the following fields:
