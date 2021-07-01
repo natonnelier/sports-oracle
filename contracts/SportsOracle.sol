@@ -21,6 +21,7 @@ contract SportsOracle is OracleInterface, Ownable {
 
     // Events
     event GameAdded(string name, bytes32 gameId, uint date);
+    event GameCompleted(bytes32 gameId, uint winner);
 
     function addGame(string memory _name, string[] memory _participants, uint _date) public override onlyOwner returns (bytes32 _id) {
 
@@ -103,6 +104,8 @@ contract SportsOracle is OracleInterface, Ownable {
 
         game.winner = _winner;
         game.status = Status.Completed;
+
+        emit GameCompleted(_gameId, _winner);
     }
 
     function setGameInProgress(bytes32 _gameId) external override {
